@@ -1,5 +1,4 @@
-use crate::FunAt;
-use crate::at::{At, copied::Copied};
+use crate::{At, CopiedAt, FunAt};
 use alloc::collections::VecDeque;
 use alloc::string::{String, ToString};
 use alloc::vec;
@@ -16,7 +15,7 @@ fn vec_as_at1() {
     let res = target_fun(&v1, &&v2);
     assert_eq!(res, 4);
 
-    let res = target_fun(&Copied::d1(&v1), &&v2);
+    let res = target_fun(&CopiedAt::d1(&v1), &&v2);
     assert_eq!(res, 4);
 }
 
@@ -27,7 +26,7 @@ fn vec_deque_as_at1() {
     let res = target_fun(&v1, &&v2);
     assert_eq!(res, 4);
 
-    let res = target_fun(&Copied::d1(&v1), &&v2);
+    let res = target_fun(&CopiedAt::d1(&v1), &&v2);
     assert_eq!(res, 4);
 }
 
@@ -42,7 +41,7 @@ fn slice_as_at1() {
     let res = target_fun(&v1, &v2);
     assert_eq!(res, 4);
 
-    let res = target_fun(&Copied::d1(v1), &v2);
+    let res = target_fun(&CopiedAt::d1(v1), &v2);
     assert_eq!(res, 4);
 }
 

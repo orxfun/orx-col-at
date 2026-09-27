@@ -10,4 +10,4 @@ mod vec;
 mod vec_deque;
 
 pub use at_trait::{At, AtNever};
-pub use copied::AtCopied;
+pub use copied::CopiedAt;

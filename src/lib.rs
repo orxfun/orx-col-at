@@ -21,7 +21,7 @@ mod at;
 mod at_mut;
 mod fun_at;
 
-pub use at::{At, AtCopied};
+pub use at::{At, CopiedAt};
 pub use at_mut::AtMut;
 pub use fun_at::FunAt;
 pub use orx_col_dim::*;
