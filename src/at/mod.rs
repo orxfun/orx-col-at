@@ -2,7 +2,7 @@
 mod tests;
 
 mod at_trait;
-// mod cloned;
+mod cloned;
 mod copied;
 pub mod fun;
 mod slice;
