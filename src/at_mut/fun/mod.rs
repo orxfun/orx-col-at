@@ -4,6 +4,4 @@ mod fun2_child;
 mod fun3;
 mod fun3_child;
 mod fun3_child2;
-mod fun_at;
-
-pub use fun_at::FunAt;
+mod fun_at_mut;
