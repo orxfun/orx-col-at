@@ -37,10 +37,10 @@ where
         Self: 'c;
 
     fn child<'c>(&'c self, c: <D2 as Dim>::ChildIdx) -> Self::Child<'c> {
-        FunAtD3Child2::new(self.c, c, &self.fun)
+        FunAtD3Child2::new(self.c, c, self.fun)
     }
 
     fn try_child<'c>(&'c self, c: <D2 as Dim>::ChildIdx) -> Option<Self::Child<'c>> {
-        Some(FunAtD3Child2::new(self.c, c, &self.fun))
+        Some(FunAtD3Child2::new(self.c, c, self.fun))
     }
 }
