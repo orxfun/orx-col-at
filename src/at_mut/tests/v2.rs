@@ -1,4 +1,4 @@
-use super::super::{AtMut, FunMutAt};
+use crate::{AtMut, FunAt};
 use alloc::collections::VecDeque;
 use alloc::string::{String, ToString};
 use alloc::vec;
@@ -98,25 +98,25 @@ fn slice_vec_as_at_mut2() {
 fn fun_as_at_mut2() {
     let mut data1 = (3, vec![0; 9]);
 
-    fn f1<'a>((m, data): &'a (usize, Vec<usize>), [i, j]: [usize; 2]) -> &'a usize {
+    fn f1<'a>((m, data): &'a (usize, Vec<usize>), i: usize, j: usize) -> &'a usize {
         let idx = i * *m + j;
         &data[idx]
     }
-    fn m1<'a>((m, data): &'a mut (usize, Vec<usize>), [i, j]: [usize; 2]) -> &'a mut usize {
+    fn m1<'a>((m, data): &'a mut (usize, Vec<usize>), i: usize, j: usize) -> &'a mut usize {
         let idx = i * *m + j;
         &mut data[idx]
     }
 
-    let mut v1 = FunMutAt::new(&mut data1, f1, m1);
+    let mut v1 = FunAt::d2_mut(&mut data1, f1, m1);
 
     let mut data2 = vec![vec!["x".to_string(), "y".to_string()]];
-    fn f2<'a>(data: &'a Vec<Vec<String>>, [i, j]: [usize; 2]) -> &'a String {
+    fn f2<'a>(data: &'a Vec<Vec<String>>, i: usize, j: usize) -> &'a String {
         &data[i][j]
     }
-    fn m2<'a>(data: &'a mut Vec<Vec<String>>, [i, j]: [usize; 2]) -> &'a mut String {
+    fn m2<'a>(data: &'a mut Vec<Vec<String>>, i: usize, j: usize) -> &'a mut String {
         &mut data[i][j]
     }
-    let v2 = FunMutAt::new(&mut data2, f2, m2);
+    let v2 = FunAt::d2_mut(&mut data2, f2, m2);
 
     target_fun(&mut v1, v2);
     assert_eq!(*v1.at([1, 0]), 2);

@@ -3,19 +3,8 @@ mod tests;
 
 mod at_mut_trait;
 pub(crate) mod fun;
-mod fun1;
-mod fun2;
-mod fun2_child;
-mod fun3;
-mod fun3_child;
-mod fun3_child2;
-mod fun_core;
 mod slice;
 mod vec;
 mod vec_deque;
 
 pub use at_mut_trait::{AtMut, AtMutNever};
-pub use fun_core::FunMutAt;
-pub use fun2_child::FunMutAt2Child;
-pub use fun3_child::FunMutAt3Child;
-pub use fun3_child2::FunMutAt3Child2;

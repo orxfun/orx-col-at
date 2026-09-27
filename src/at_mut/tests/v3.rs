@@ -1,4 +1,4 @@
-use crate::at_mut::{AtMut, FunMutAt};
+use crate::{AtMut, FunAt};
 use alloc::collections::VecDeque;
 use alloc::vec;
 use orx_col_dim::{D1, D2, D3};
@@ -54,17 +54,24 @@ fn slices_as_at_mut3() {
 fn fun_as_at_mut3() {
     let mut data = (3, vec![0; 18]);
 
-    fn get<'a>(data: &'a (usize, alloc::vec::Vec<usize>), [i, j, k]: [usize; 3]) -> &'a usize {
+    fn get<'a>(
+        data: &'a (usize, alloc::vec::Vec<usize>),
+        i: usize,
+        j: usize,
+        k: usize,
+    ) -> &'a usize {
         &data.1[i * data.0 * 2 + j * 2 + k]
     }
     fn get_mut<'a>(
         data: &'a mut (usize, alloc::vec::Vec<usize>),
-        [i, j, k]: [usize; 3],
+        i: usize,
+        j: usize,
+        k: usize,
     ) -> &'a mut usize {
         &mut data.1[i * data.0 * 2 + j * 2 + k]
     }
 
-    let mut values = FunMutAt::new(&mut data, get, get_mut);
+    let mut values = FunAt::d3_mut(&mut data, get, get_mut);
     *AtMut::<D3, usize>::at_mut(&mut values, [2, 1, 1]) = 42;
     let mut child = AtMut::<D3, usize>::child_mut(&mut values, 2);
     let mut child2 = AtMut::<D2, usize>::child_mut(&mut child, 1);
