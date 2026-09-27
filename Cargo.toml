@@ -1,0 +1,21 @@
+[package]
+name = "orx-col-at"
+version = "0.1.0"
+edition = "2024"
+authors = ["orxfun <orx.ugur.arikan@gmail.com>"]
+description = "Indexed access abstractions over collections"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/orxfun/orx-col-at/"
+keywords = ["vec", "vector", "algorithm", "trait", "monomorphisation"]
+categories = ["data-structures", "algorithms", "no-std"]
+
+[dependencies]
+derive-new = { version = "0.7", default-features = false }
+orx-col-dim = { version = "0.1", default-features = false }
+
+[dev-dependencies]
+num = "0.4"
+
+[features]
+default = []
+std = []
