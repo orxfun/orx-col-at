@@ -3,9 +3,21 @@ use core::marker::PhantomData;
 use derive_new::new;
 use orx_col_dim::{D1, D2, D3, D4, Dim};
 
+/// Adapts reference-returning accessors to clone values on access.
+///
+/// # Examples
+///
+/// ```
+/// use orx_col_at::{At, ClonedAt};
+///
+/// let words = vec![vec![String::from("hello")]];
+/// let cloned = ClonedAt::d2(&words);
+/// assert_eq!(cloned.at([0, 0]), "hello");
+/// ```
 pub struct ClonedAt;
 
 impl ClonedAt {
+    /// Creates a one-dimensional cloning accessor.
     pub fn d1<'a, T, V>(v: V) -> Cloned<'a, D1, T, V>
     where
         V: At<D1, &'a T>,
@@ -14,6 +26,7 @@ impl ClonedAt {
         Cloned::new(v)
     }
 
+    /// Creates a two-dimensional cloning accessor.
     pub fn d2<'a, T, V>(v: V) -> Cloned<'a, D2, T, V>
     where
         V: At<D2, &'a T>,
@@ -22,6 +35,7 @@ impl ClonedAt {
         Cloned::new(v)
     }
 
+    /// Creates a three-dimensional cloning accessor.
     pub fn d3<'a, T, V>(v: V) -> Cloned<'a, D3, T, V>
     where
         V: At<D3, &'a T>,
@@ -30,6 +44,7 @@ impl ClonedAt {
         Cloned::new(v)
     }
 
+    /// Creates a four-dimensional cloning accessor.
     pub fn d4<'a, T, V>(v: V) -> Cloned<'a, D4, T, V>
     where
         V: At<D4, &'a T>,

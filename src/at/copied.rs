@@ -3,9 +3,21 @@ use core::marker::PhantomData;
 use derive_new::new;
 use orx_col_dim::{D1, D2, D3, D4, Dim};
 
+/// Adapts reference-returning accessors to copy values on access.
+///
+/// # Examples
+///
+/// ```
+/// use orx_col_at::{At, CopiedAt};
+///
+/// let matrix = vec![vec![10, 20]];
+/// let copied = CopiedAt::d2(&matrix);
+/// assert_eq!(copied.at([0, 1]), 20);
+/// ```
 pub struct CopiedAt;
 
 impl CopiedAt {
+    /// Creates a one-dimensional copying accessor.
     pub fn d1<'a, T, V>(v: V) -> Copied<'a, D1, T, V>
     where
         V: At<D1, &'a T>,
@@ -14,6 +26,7 @@ impl CopiedAt {
         Copied::new(v)
     }
 
+    /// Creates a two-dimensional copying accessor.
     pub fn d2<'a, T, V>(v: V) -> Copied<'a, D2, T, V>
     where
         V: At<D2, &'a T>,
@@ -22,6 +35,7 @@ impl CopiedAt {
         Copied::new(v)
     }
 
+    /// Creates a three-dimensional copying accessor.
     pub fn d3<'a, T, V>(v: V) -> Copied<'a, D3, T, V>
     where
         V: At<D3, &'a T>,
@@ -30,6 +44,7 @@ impl CopiedAt {
         Copied::new(v)
     }
 
+    /// Creates a four-dimensional copying accessor.
     pub fn d4<'a, T, V>(v: V) -> Copied<'a, D4, T, V>
     where
         V: At<D4, &'a T>,

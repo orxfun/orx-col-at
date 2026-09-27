@@ -1,20 +1,41 @@
 use orx_col_dim::{DNever, Dim, IdxNever};
 
+/// Provides shared and mutable indexed access to collection values.
+///
+/// The `try_` methods return `None` for out-of-bounds indices.
+///
+/// # Examples
+///
+/// ```
+/// use orx_col_at::AtMut;
+/// use orx_col_dim::D1;
+///
+/// let mut values = vec![1, 2, 3];
+/// *AtMut::<D1, _>::at_mut(&mut values, 1) = 5;
+/// assert_eq!(AtMut::<D1, _>::try_at(&values, 1), Some(&5));
+/// ```
 pub trait AtMut<D: Dim, T> {
+    /// Returns a shared reference to the value at `idx`, panicking if out of bounds.
     fn at(&self, idx: D::Idx) -> &T;
 
+    /// Returns a shared reference to the value at `idx`, or `None` if out of bounds.
     fn try_at(&self, idx: D::Idx) -> Option<&T>;
 
+    /// Returns a mutable reference to the value at `idx`, panicking if out of bounds.
     fn at_mut(&mut self, idx: D::Idx) -> &mut T;
 
+    /// Returns a mutable reference to the value at `idx`, or `None` if out of bounds.
     fn try_at_mut(&mut self, idx: D::Idx) -> Option<&mut T>;
 
+    /// The type of a mutable child collection in the next lower dimension.
     type ChildMut<'c>: AtMut<D::ChildDim, T>
     where
         Self: 'c;
 
+    /// Returns the mutable child at `c`, panicking if it is out of bounds.
     fn child_mut<'c>(&'c mut self, c: D::ChildIdx) -> Self::ChildMut<'c>;
 
+    /// Returns the mutable child at `c`, or `None` if it is out of bounds.
     fn try_child_mut<'c>(&'c mut self, c: D::ChildIdx) -> Option<Self::ChildMut<'c>>;
 }
 
