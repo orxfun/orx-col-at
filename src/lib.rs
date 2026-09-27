@@ -22,4 +22,4 @@ mod at_mut;
 
 pub use at::{At, AtCopied};
 pub use at_mut::AtMut;
-pub use orx_dim::*;
+pub use orx_col_dim::*;

@@ -1,7 +1,7 @@
-use orx_dim::Dim;
 use core::borrow::BorrowMut;
 use core::marker::PhantomData;
 use derive_new::new;
+use orx_col_dim::Dim;
 
 #[derive(new)]
 pub struct FunMutAt<D, S, I, T, F, M>

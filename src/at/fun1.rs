@@ -1,5 +1,5 @@
 use crate::at::{At, AtNever, FunAt};
-use orx_dim::{D1, IdxNever};
+use orx_col_dim::{D1, IdxNever};
 
 impl<T, F> At<D1, T> for FunAt<D1, T, F>
 where

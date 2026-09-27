@@ -2,7 +2,7 @@ use super::super::AtMut;
 use alloc::collections::VecDeque;
 use alloc::string::{String, ToString};
 use alloc::vec;
-use orx_dim::D1;
+use orx_col_dim::D1;
 
 fn target_fun<'a>(v1: &mut impl AtMut<D1, usize>, mut v2: impl AtMut<D1, String>) {
     v2.at_mut(1).push_str("z");

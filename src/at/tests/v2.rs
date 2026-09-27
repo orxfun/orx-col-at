@@ -2,7 +2,7 @@ use crate::at::{At, FunAt, copied::Copied};
 use alloc::collections::VecDeque;
 use alloc::string::{String, ToString};
 use alloc::vec;
-use orx_dim::{D1, D2};
+use orx_col_dim::{D1, D2};
 
 fn target_fun<'a>(v1: &impl At<D2, usize>, v2: &impl At<D2, &'a String>) -> usize {
     v1.at([1, 0]) + v2.at([0, 1]).len()

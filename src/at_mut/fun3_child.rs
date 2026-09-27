@@ -1,7 +1,7 @@
 use crate::at_mut::{AtMut, FunMutAt3Child2};
 use core::marker::PhantomData;
 use derive_new::new;
-use orx_dim::{D3, Dim};
+use orx_col_dim::{D3, Dim};
 
 #[derive(new)]
 pub struct FunMutAt3Child<'a, I, T, F, M>

@@ -1,6 +1,6 @@
 use crate::at::{At, AtNever};
 use derive_new::new;
-use orx_dim::{D2, Dim, IdxNever};
+use orx_col_dim::{D2, Dim, IdxNever};
 
 #[derive(new)]
 pub struct FunAt2Child<'a, T, F>

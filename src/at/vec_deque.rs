@@ -1,6 +1,6 @@
 use crate::at::{At, AtNever};
 use alloc::collections::VecDeque;
-use orx_dim::{D1, D2, D3, IdxNever};
+use orx_col_dim::{D1, D2, D3, IdxNever};
 
 // d1
 

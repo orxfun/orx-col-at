@@ -1,5 +1,5 @@
 use crate::at_mut::{AtMut, AtMutNever};
-use orx_dim::{D1, D2, D3, IdxNever};
+use orx_col_dim::{D1, D2, D3, IdxNever};
 
 // d1
 

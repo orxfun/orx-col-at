@@ -1,7 +1,7 @@
 use crate::at::At;
 use core::marker::PhantomData;
 use derive_new::new;
-use orx_dim::{D1, D2, D3, D4, Dim};
+use orx_col_dim::{D1, D2, D3, D4, Dim};
 
 pub struct Copied;
 

@@ -1,4 +1,4 @@
-use orx_dim::{DNever, Dim, IdxNever};
+use orx_col_dim::{DNever, Dim, IdxNever};
 
 pub trait AtMut<D: Dim, T> {
     fn at(&self, idx: D::Idx) -> &T;

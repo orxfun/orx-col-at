@@ -1,7 +1,7 @@
 use crate::at_mut::{AtMut, FunMutAt};
 use alloc::collections::VecDeque;
 use alloc::vec;
-use orx_dim::{D1, D2, D3};
+use orx_col_dim::{D1, D2, D3};
 
 fn increment_row(row: &mut (impl AtMut<D1, usize> + ?Sized)) {
     for i in 0..2 {

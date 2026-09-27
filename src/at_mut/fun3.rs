@@ -1,6 +1,6 @@
 use crate::at_mut::{AtMut, FunMutAt, FunMutAt3Child};
 use core::borrow::BorrowMut;
-use orx_dim::D3;
+use orx_col_dim::D3;
 
 impl<S, I, T, F, M> AtMut<D3, T> for FunMutAt<D3, S, I, T, F, M>
 where

@@ -3,7 +3,7 @@ use alloc::collections::VecDeque;
 use alloc::string::{String, ToString};
 use alloc::vec;
 use alloc::vec::Vec;
-use orx_dim::{D1, D2};
+use orx_col_dim::{D1, D2};
 
 fn target_fun<'a>(v1: &mut (impl AtMut<D2, usize> + ?Sized), mut v2: impl AtMut<D2, String>) {
     v2.at_mut([0, 1]).push_str("z");
