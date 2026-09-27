@@ -89,8 +89,8 @@ fn fun_as_at3() {
         vec![vec![6, 7, 8]],
         vec![vec![9]],
     ];
-    let v1 = FunAt::new(|[i, j, k]: [usize; 3]| i * 100 + j * 10 + k);
-    let v2 = FunAt::new(|[i, j, k]: [usize; 3]| &vec3[i][j][k]);
+    let v1 = FunAt::d3(|i, j, k| i * 100 + j * 10 + k);
+    let v2 = FunAt::d3(|i, j, k| &vec3[i][j][k]);
 
     assert_eq!(target_fun(&v1, &v2), 107);
 

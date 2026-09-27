@@ -1,8 +1,8 @@
 use crate::at::fun::{fun1::FunAtD1, fun2::FunAtD2, fun3::FunAtD3};
 
-pub struct Fun;
+pub struct FunAt;
 
-impl Fun {
+impl FunAt {
     pub fn d1<T, F>(fun: F) -> FunAtD1<T, F>
     where
         F: Fn(usize) -> T,

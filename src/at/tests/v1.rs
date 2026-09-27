@@ -48,10 +48,10 @@ fn slice_as_at1() {
 
 #[test]
 fn fun_as_at1() {
-    let v1 = FunAt::new(|i| i + 1);
+    let v1 = FunAt::d1(|i| i + 1);
 
     let vec2 = vec!["x".to_string(), "y".to_string()];
-    let v2 = FunAt::new(|i| &vec2[i]);
+    let v2 = FunAt::d1(|i| &vec2[i]);
 
     let res = target_fun(&v1, &v2);
     assert_eq!(res, 4);
