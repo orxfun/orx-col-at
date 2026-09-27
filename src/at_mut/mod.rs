@@ -2,7 +2,7 @@
 mod tests;
 
 mod at_mut_trait;
-mod fun;
+pub(crate) mod fun;
 mod fun1;
 mod fun2;
 mod fun2_child;
