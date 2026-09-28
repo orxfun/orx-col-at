@@ -15,7 +15,3 @@ orx-col-dim = { version = "0.1", default-features = false }
 
 [dev-dependencies]
 num = "0.4"
-
-[features]
-default = []
-std = []
